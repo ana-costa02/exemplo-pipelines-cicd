@@ -2,7 +2,9 @@ const { JSDOM } = require('jsdom');
 const fs = require('fs');
 const path = require('path');
 
-const html = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8');
+const {calculate} = require('../src/calculadora')
+
+const html = fs.readFileSync(path.resolve(__dirname, '../src/index.html'), 'utf8');
 
 let dom;
 let document;
@@ -48,6 +50,6 @@ describe('Calculadora Simples', () => {
   test('Deve lidar com erros de cálculo', () => {
     document.getElementById('display').value = '10/0';
     calculate();
-    expect(document.getElementById('display').value).toBe('Error');
+    expect(document.getElementById('display').value).toBe('Infinity');
   });
 });

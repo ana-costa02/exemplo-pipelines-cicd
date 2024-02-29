@@ -14,3 +14,7 @@ function addToDisplay(value) {
       document.getElementById('display').value = 'Error';
     }
   }
+
+  module.exports={
+    calculate
+  }
